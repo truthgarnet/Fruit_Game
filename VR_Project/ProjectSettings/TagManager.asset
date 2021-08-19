@@ -10,6 +10,7 @@ TagManager:
   - 'Strawberry '
   - Watermelon
   - Bomb
+  - Start
   layers:
   - Default
   - TransparentFX

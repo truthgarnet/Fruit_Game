@@ -5,23 +5,28 @@ using UnityEngine;
 public class main : MonoBehaviour
 {
     public enum Fruit { Cube1, Cube2, Cube3, Cube4, Cube5, Cube6 };
-
+    
     public GameObject[] Fruitly;
     public GameObject btn;
     public Canvas start;
-    bool check = false;
-
+    bool check1;
+ 
     Fruit ft;
 
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(NCube());
+        check1 = false;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (StartUI._this.check == true)
+            check1 = true;
+
         int r = Random.Range(0, Fruitly.Length);
 
         switch (r)
@@ -74,21 +79,16 @@ public class main : MonoBehaviour
                     target = Fruitly[5];
                     break;
             }
-            if(check == true)
+
+
+            if (check1 == true)
             {
-                start.gameObject.SetActive(true);
-                Vector3 pos = new Vector3(Random.Range(-0.7f, 0.7f), Random.Range(0.7f, 1.5f), -15);
+                Vector3 pos = new Vector3(Random.Range(-0.7f, 0.7f), Random.Range(1.3f, 2.1f), -15);
                 GameObject C = GameObject.Instantiate(target, pos, Quaternion.identity);
             }
             
-            
-            
-
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(0.7f);
         }
     }
-    public void onclick()
-    {
-        check = true;
-    }
+  
 }

@@ -6,34 +6,38 @@ public class Sword : MonoBehaviour
 {
     public int score;
     public int count = 0;
+    AudioSource audioSource;
+    public static Sword _this;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        Sword._this = this;
+        audioSource = this.gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(score);
+        
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == "blueberry(Clone)")
         {
-            score += 10;
+            score += 50;
             Destroy(other.gameObject);
-
+           this.audioSource.Play();
         }
 
 
         if (other.gameObject.name == "strawberry(Clone)")
         {
-            score += 20;
+            score += 40;
             Destroy(other.gameObject);
+           this.audioSource.Play();
         }
             
 
@@ -41,21 +45,24 @@ public class Sword : MonoBehaviour
         {
             score += 30;
             Destroy(other.gameObject);
+           this.audioSource.Play();
         }
 
         if (other.gameObject.name == "orange(Clone)")
         {
-            score += 40;
+            score += 20;
             Destroy(other.gameObject);
+           this.audioSource.Play();
         }
 
         if (other.gameObject.name == "watermelon(Clone)")
         {
-            score += 50;
+            score += 10;
             Destroy(other.gameObject);
+           this.audioSource.Play();
         }
 
-        if (other.gameObject.name == "Cube6(Clone)")
+        if (other.gameObject.name == "bomb 1(Clone)")
         {
             score -= 100;
             Destroy(other.gameObject);
